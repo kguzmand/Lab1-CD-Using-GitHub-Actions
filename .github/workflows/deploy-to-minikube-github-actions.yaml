@@ -1,7 +1,7 @@
 name: Deploy to Minikube using GitHub Actions
 
 on: [push]
-  
+
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -20,8 +20,8 @@ jobs:
           echo -n "verifying images:"
           docker images         
     - name: Deploy to minikube
-      run:
-        kubectl apply -f k8s-node-app.yaml
+      run: |
+          kubectl apply -f k8s-node-app.yaml
     - name: Test service URLs
       run: |
           minikube service list
